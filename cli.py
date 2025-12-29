@@ -1,6 +1,6 @@
 # Add desktop GUI
 import time
-from functions import write_todos, get_todosq
+from functions import write_todos, get_todos
 
 now = time.strftime("%b %d, %Y %H:%M:%S")
 print("The time is below:")

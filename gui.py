@@ -9,18 +9,23 @@ sg.theme("LightGrey3")
 # Date and time
 clock = sg.Text("", key="clock")
 label = sg.Text("Type in a to-do")
-input_box = sg.InputText(tooltip="Enter a todo", key="todo", size=(34, 1))
-add_button = sg.Button("Add")
+input_box = sg.InputText(tooltip="Enter a todo", key="todo", size=(24, 1))
+add_button = sg.Button("Add", size=(8, 1))
 list_box = sg.Listbox(values=functions.get_todos("files/todos.txt"), key="todos", enable_events=True, size=(33, 5))
-edit_button = sg.Button("Edit")
-complete_button = sg.Button("Complete")
-exit_button = sg.Button("Exit")
+edit_button = sg.Button("Edit", size=(8, 1))
+complete_button = sg.Button("Complete", size=(8, 1))
+exit_button = sg.Button("Exit", size=(8, 1))
+
+buttons_column = sg.Column([
+    [edit_button],
+    [complete_button]
+])
 
 window = sg.Window("My To-Do App",
                    layout=[[clock],
                            [label],
                            [input_box, add_button],
-                           [list_box, edit_button, complete_button],
+                           [list_box, buttons_column],
                            [exit_button]],
                    font="Arial, 20")
 
